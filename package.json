@@ -5,6 +5,7 @@
   "scripts": {
     "commit": "npx git-cz",
     "start": "node ./bin/www",
+    "dev": "nodemon ./bin/www",
     "semantic-release": "semantic-release"
   },
   "dependencies": {
@@ -18,10 +19,11 @@
     "url": "https://github.com/Guya-LTD/dymo.git"
   },
   "devDependencies": {
-    "semantic-release": "^17.1.1",
     "commitizen": "^4.1.2",
     "cz-conventional-changelog": "^3.2.0",
-    "ghooks": "^2.0.4"
+    "ghooks": "^2.0.4",
+    "nodemon": "^2.0.4",
+    "semantic-release": "^17.1.1"
   },
   "config": {
     "commitizen": {
