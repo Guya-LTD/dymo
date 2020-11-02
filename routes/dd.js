@@ -120,7 +120,7 @@ var dd = {
         headerRows: 1,
         widths: [ '*', '*', '*', 0 ],
         //widths:[200, 199],
-		heights: [20, 'auto', 'auto'],
+		    heights: [20, 'auto', 'auto'],
 
         body: [
           // border = [left, top, right, bottom]
