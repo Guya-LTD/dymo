@@ -7,7 +7,6 @@ const { Canvas } = require("canvas");
 //var setTopMarginOfCellForVerticalCentering = require('../helpers/top_cell_margin');
 
 const canvas = new Canvas();
-JsBarcode(canvas, "Hello");
 
 const setTopMarginOfCellForVerticalCentering = (ri, node) => {
   const calcCellHeight = (cell, ci) => {
@@ -197,6 +196,9 @@ router.post('/shippings', function(req, res, next) {
   // Payment
   var PAYMENT = req.body.payment;
 
+  // Barcode
+  JsBarcode(canvas, req.body.trk);
+
   var dd = {
     pageSize: {
         width: 300,
@@ -302,7 +304,7 @@ router.post('/shippings', function(req, res, next) {
         // headers are automatically repeated if the table spans over multiple pages
         // you can declare how many rows should be treated as headers
         headerRows: 1,
-        widths: [ 150, 300, '*'],
+        widths: [ 150, 200, '*'],
         //widths:[200, 199],
 		heights: [10, 'auto'],
         
@@ -327,12 +329,13 @@ router.post('/shippings', function(req, res, next) {
           // Row 3
           [
             // Row 2, Column 1
-            {text: '', border: [false, false, false, false]},
+            //{text: '', border: [false, false, false, false]},
             // Row 2, Column 2
-            {text: 'image', border: [false, false, false, false]},
+            {image: canvas.toDataURL(), width: 200, height: 120,  margin: [50, 0], border: [false, false, false, false]},
             // Row 2, Column 3
             // Box closing
-            {text: '', border: [false, false, true, false]} 
+            {text: '', border: [false, false, true, false]},
+            {text: '', border: [false, false, false, false]},
           ],
           // Row 4
           [
