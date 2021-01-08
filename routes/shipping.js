@@ -197,7 +197,7 @@ router.post('/shippings', function(req, res, next) {
   var PAYMENT = req.body.payment;
 
   // Barcode
-  JsBarcode(canvas, req.body.trk);
+  JsBarcode(canvas, req.body.trk), {format: "CODE39"};
 
   var dd = {
     pageSize: {
